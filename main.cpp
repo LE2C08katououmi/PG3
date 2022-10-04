@@ -7,16 +7,16 @@ int Recursive(int n)
 		return(1);
 	}
 
-	return(n * Recursive(n - 1));
+	return Recursive(n - 1);
 }
 
 int main()
 {
-	int n = 10;
+	int n = 5;
 	int result;
 
 	result = Recursive(n);
-	printf("%d‚ÌŠKæ = %d\n", n, result);
+	printf("%dŠÔ“­‚¢‚½ê‡‚Ì‹‹‚Í%d\n", n, result);
 
 	return 0;
 }
