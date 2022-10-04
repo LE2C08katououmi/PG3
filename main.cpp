@@ -3,7 +3,7 @@
 template<typename T>
 T Min(T a, T b)
 {
-	if (a > b)
+	if (a < b)
 	{
 		return a;
 	}
@@ -23,8 +23,8 @@ int main()
 {
 	printf("%d\n", Min<int>(500, 100));
 	printf("%f\n", Min<float>(50.0f, 10.0f));
-	printf("%lf\n",Min<double>(50, 100));
-	Min<char>(0, 0);
+	printf("%f\n",Min<double>(50.0, 10.0));
+	Min<char>('a', 'b');
 
 	return 0;
 }
