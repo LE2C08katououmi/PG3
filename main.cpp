@@ -1,24 +1,41 @@
 #include<stdio.h>
+#include<typeinfo>
+#include<iostream>
+using namespace std;
 
-void drawImage(int x, int y)
-{
-	printf("‰æ‘œ‚ð•`‰æ x:%d y:%d\n", x, y);
-}
+template <typename Type>
 
-void drawImage(int x, int y,int z)
+Type comparison(Type a, Type b) 
 {
-	printf("}Œ`‚ð•`‰æ x:%d y:%d z:%d\n", x, y, z);
+	if (a > b)
+	{
+		return a;
+	}
+	else
+	{
+		return b;
+	}
 }
 
 int main()
 {
+	// intŒ^‚Ì’l‚ð”äŠr
 	int x = 10;
 	int y = 20;
-	int z = 30;
-	drawImage(x, y);
 
-	x = 1;
-	y = 2;
-	z = 3;
-	drawImage(x, y, z);
+	cout << "x" << x << "‚Æy:" << y << "‚ð”äŠr" << endl;
+	auto a = max(x, y);
+	cout << "‘å‚«‚¢’l‚Í" << a << endl;
+	cout << "a‚ÌŒ^ : " << typeid(a).name() << endl;
+
+	// floatŒ^‚Ì’l‚ð”äŠr
+	float z = 12.3f;
+	float w = 45.6f;
+
+	cout << "z" << z << "‚Æw:" << w << "‚ð”äŠr" << endl;
+	auto b = max(z, w);
+	cout << "‘å‚«‚¢’l‚Í" << b << endl;
+	cout << "b‚ÌŒ^ : " << typeid(b).name() << endl;
+
+	return 0;
 }
