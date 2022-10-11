@@ -1,22 +1,24 @@
 #include<stdio.h>
 
-int Recursive(int n)
+void drawImage(int x, int y)
 {
-	if (n <= 1)
-	{
-		return(100);
-	}
+	printf("‰æ‘œ‚ð•`‰æ x:%d y:%d\n", x, y);
+}
 
-	return Recursive(n - 1) * 2 - 50;
+void drawImage(int x, int y,int z)
+{
+	printf("}Œ`‚ð•`‰æ x:%d y:%d z:%d\n", x, y, z);
 }
 
 int main()
 {
-	int n = 5;
-	int result;
+	int x = 10;
+	int y = 20;
+	int z = 30;
+	drawImage(x, y);
 
-	result = Recursive(n);
-	printf("%dŽžŠÔ“­‚¢‚½ê‡‚ÌŽž‹‹‚Í%d\n", n, result);
-
-	return 0;
+	x = 1;
+	y = 2;
+	z = 3;
+	drawImage(x, y, z);
 }
