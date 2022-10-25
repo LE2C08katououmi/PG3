@@ -1,21 +1,57 @@
 #include<stdio.h>
+#include<stdlib.h>
+#include<windows.h>
+#include<time.h>
 
-int func(int n)
+typedef void (*PFunc)(int*);
+
+int odice;
+int dice;
+int cdice;
+
+void callback1(int* s)
 {
-	if (n == 1)
-		return 1;
+	if (cdice == 1 && dice == 1)
+	{
+		printf("³‰ð dice‚Í%d",odice);
+	}
+	else if (cdice == 2 && dice == 0)
+	{
+		printf("³‰ð dice‚Í%d",odice);
+	}
 	else
-		return func(n - 1) * n;
+	{
+		printf("•s³‰ð dice‚Í%d",odice);
+	}
+}
+
+void setTimeout(PFunc p, int second)
+{
+	Sleep(second * 1000);
+
+	p(&second);
 }
 
 int main()
 {
-	int data;
+	srand(time(nullptr));
+	dice = rand() % 6 + 1;
+	odice = dice;
 
-	printf("data : ");
-	scanf_s("%d", &data);
+	printf("Šï”‚È‚ç1A‹ô”‚È‚ç2:");
 
-	printf("%d != %d\n", data,func(data));
+	while (dice > 1)
+	{
+		dice = dice % 2;
+
+		break;
+	}
+
+	scanf_s("%d", &cdice);
+
+	PFunc p;
+	p = callback1;
+	setTimeout(p, 3);
 
 	return 0;
 }
