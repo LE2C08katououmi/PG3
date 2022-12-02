@@ -1,57 +1,61 @@
-#include <stdlib.h>
-#include <list>
-#include <iterator>
-#include <string>
-#include <iostream>
+#include<stdio.h>
+#include<stdlib.h>
 
-using namespace std;
-
-int main()
+typedef struct cell
 {
-	list<const char*>Station = { "東京 ","神田 ","秋葉原 ","御徒町 ","上野 ","鶯谷 ",
-								"日暮里 ","田端 ","駒込 ","巣鴨 ","大塚 " ,"池袋 ",
-								"目白 ","高田馬場 ","新大久保 ","新宿 ","代々木 ",
-								"原宿 ","渋谷 ","恵比寿 ","目黒 ","五反田 ","大崎 ",
-								"品川 ","田町 ","浜松町 ","新橋 ","有楽町\n\n" };
+	int val;
+	struct cell* next;
+} CELL;
 
-	cout << "1970年\n";
+void Create(CELL* list, int val);
+void Index(CELL* list);
 
-	for (auto itr = Station.begin(); itr != Station.end(); ++itr)
+int main(void) {
+	int data;
+	CELL first_cell;
+	first_cell.next = NULL;
+
+	printf("好きな数字を入力してください\n");
+
+	while (true)
 	{
-		printf("%s", *itr);
-	}
-	
-	for (auto itr = Station.begin(); itr != Station.end(); ++itr)
-	{
-		if (*itr == "田端 ")
-		{
-			itr = Station.insert(itr, "西日暮里 ");
-			itr++;
-		}
-	}
-
-	cout << "2019年\n";
-
-	for (auto itr = Station.begin(); itr != Station.end(); ++itr)
-	{
-		printf("%s", *itr);
-	}
-
-	for (auto itr = Station.begin(); itr != Station.end(); ++itr)
-	{
-		if (*itr == "田町 ")
-		{
-			itr = Station.insert(itr, "高輪ゲートウェイ ");
-			itr++;
-		}
-	}
-
-	cout << "2022年\n";
-
-	for (auto itr = Station.begin(); itr != Station.end(); ++itr)
-	{
-		printf("%s", *itr);
+		printf("入力する値:");
+		scanf_s("%d", &data);
+		Create(&first_cell, data);
+		Index(&first_cell);
 	}
 
 	return 0;
+}
+
+void Create(CELL* list, int val)
+{
+	CELL* newCell;
+	newCell = (CELL*)malloc(sizeof(CELL));
+	
+	if(newCell)
+	{
+		newCell->val = val;
+		newCell->next = NULL;
+	}
+
+	while (list->next != NULL)
+	{
+		list = list->next;
+	}
+
+	list->next = newCell;
+}
+
+void Index(CELL* list)
+{
+	printf("{");
+
+	while (list->next != NULL)
+	{
+		list = list->next;
+		printf("%d,", list->val);
+	}
+
+	printf("}\n\n");
 }
