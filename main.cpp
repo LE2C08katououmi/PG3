@@ -20,10 +20,10 @@ int main()
 	{
 		printf("%s", *itr);
 	}
-	
+
 	for (auto itr = Station.begin(); itr != Station.end(); ++itr)
 	{
-		if (*itr == "田端 ")
+		if (strcmp(*itr, "田端 ") == 0)
 		{
 			itr = Station.insert(itr, "西日暮里 ");
 			itr++;
@@ -39,7 +39,7 @@ int main()
 
 	for (auto itr = Station.begin(); itr != Station.end(); ++itr)
 	{
-		if (*itr == "田町 ")
+		if (strcmp(*itr, "田町 ") == 0)
 		{
 			itr = Station.insert(itr, "高輪ゲートウェイ ");
 			itr++;
