@@ -4,54 +4,26 @@
 #include <string>
 #include <iostream>
 
+#include "student.h"
+
 using namespace std;
+
+int Student::studentCount;
 
 int main()
 {
-	list<const char*>Station = { "Tokyo ","Kanda ","Akihabara ","Okachimachi ","Ueno ","Uguisudani ",
-								"Nippori ","Tabata ","Komagome ","Sugamo ","Otsuka " ,"Ikebukuro ",
-								"Mejiro ","Takadanobaba ","Shin-Okubo ","Shinjuku ","Yoyogi ",
-								"Harajuku ","Shibuya ","Ebisu ","Meguro ","Gotanda ","Osaki ",
-								"Shinagawa ","Tamachi ","Hamamatsucho ","Shimbashi ","Yurakucho\n\n" };
+	Student* student1 = new Student;
+	Student* student2 = new Student;
+	Student* student3 = new Student;
 
-	cout << "1970”N\n";
+	cout << Student::studentCount << endl;
 
-	for (auto itr = Station.begin(); itr != Station.end(); ++itr)
-	{
-		printf("%s", *itr);
-	}
+	delete student1;
 
-	for (auto itr = Station.begin(); itr != Station.end(); ++itr)
-	{
-		if (strcmp(*itr, "Tabata ") == 0)
-		{
-			itr = Station.insert(itr, "Nishi-Nippori ");
-			itr++;
-		}
-	}
-
-	cout << "2019”N\n";
-
-	for (auto itr = Station.begin(); itr != Station.end(); ++itr)
-	{
-		printf("%s", *itr);
-	}
-
-	for (auto itr = Station.begin(); itr != Station.end(); ++itr)
-	{
-		if (strcmp(*itr, "Tamachi ") == 0)
-		{
-			itr = Station.insert(itr, "Takanawa Gateway ");
-			itr++;
-		}
-	}
-
-	cout << "2022”N\n";
-
-	for (auto itr = Station.begin(); itr != Station.end(); ++itr)
-	{
-		printf("%s", *itr);
-	}
+	cout << Student::studentCount << endl;
+	delete student2;
+	delete student3;
+	cout << Student::studentCount << endl;
 
 	return 0;
 }
