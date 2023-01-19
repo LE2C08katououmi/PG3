@@ -4,13 +4,15 @@
 #include <string>
 #include <iostream>
 
-#include "MyClass.h"
+#include "Enemy.h"
 
 using namespace std;
 
 int main()
 {
-	MyClass* myClass = new MyClass;
+	Enemy* enemy = new Enemy;
+
+	enemy->Action();
 
 	return 0;
 }
