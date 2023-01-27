@@ -4,15 +4,15 @@
 #include <string>
 #include <iostream>
 
-#include "Enemy.h"
+#include "Shape.h"
 
 using namespace std;
 
 int main()
 {
-	Enemy* enemy = new Enemy;
+	IShape* shape = new IShape;
 
-	enemy->Action();
+	shape->Draw();
 
 	return 0;
 }
