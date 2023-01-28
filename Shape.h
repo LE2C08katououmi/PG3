@@ -5,14 +5,8 @@
 class IShape
 {
 public:
-	void size();
+	virtual void size() = 0;
 
-	void Draw();
-
-private:
-	//â~ÇÃîºåa
-	float circleX = 5.0f;
-	//â~ÇÃñ êœ
-	float circleA;
+	virtual void draw() = 0;
 };
 
